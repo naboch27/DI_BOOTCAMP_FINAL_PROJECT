@@ -4,6 +4,8 @@ import { CompteComponent } from './components/compte/compte.component';
 import { ConsultationComponent } from './components/consultation/consultation.component';
 import { DonComponent } from './components/don/don.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SensitizationComponent } from './components/sensitization/sensitization.component';
 
 const routes: Routes = [
@@ -13,8 +15,10 @@ const routes: Routes = [
   { path: 'don', component: DonComponent },
   { path: 'consulter', component: ConsultationComponent },
   { path: 'compte', component: CompteComponent },
-  { path: '', redirectTo: '/home' ,pathMatch : 'full'}
-  
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFoundComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
+
 ];
 
 @NgModule({
