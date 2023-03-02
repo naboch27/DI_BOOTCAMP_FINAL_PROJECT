@@ -11,11 +11,6 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent implements OnInit{
   title = 'TCHENGA';
 
-  images = ['../../assets/img/carousel/don1.jpg',
-  '../../assets/img/carousel/don2.jpg',
-  '../../assets/img/carousel/don3.jpg'
-];
-
   constructor(){
 
   }
