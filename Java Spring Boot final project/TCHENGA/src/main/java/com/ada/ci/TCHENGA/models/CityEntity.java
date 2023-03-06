@@ -2,6 +2,7 @@ package com.ada.ci.TCHENGA.models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,35 +14,29 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="city")
+@Table(name = "city")
 public class CityEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private Integer cityId;
 	@NotBlank(message = "Le champ name ne peut etre vide")
-	@Column(name="name")
+	@Column(name = "name")
 	private String cityName;
-	@NotBlank(message = "Le champ create country ne peut etre vide")
-	@Column(name="create_at")
-	private Date createAtCountry;
-	@NotBlank(message = "Le champ update country ne peut etre vide")
-	@Column(name="update_at")
-	
-	  private Date  updateAtCountry;
-	  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	  @JoinColumn(name = "countryId", nullable = false)
-	  @OnDelete(action = OnDeleteAction.CASCADE)
-	  @JsonIgnore
-	   private CountryEntity country;
-	  
+	@Column(name = "create_at")
+	private Date createAtCity;
+	@Column(name = "update_at")
+	private Date updateAtCity;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "countryId")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private CountryEntity country;
+
 	public CityEntity() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -63,20 +58,20 @@ public class CityEntity {
 		this.cityName = cityName;
 	}
 
-	public Date getCreateAtCountry() {
-		return createAtCountry;
+	public Date getCreateAtCity() {
+		return createAtCity;
 	}
 
-	public void setCreateAtCountry(Date createAtCountry) {
-		this.createAtCountry = createAtCountry;
+	public void setCreateAtCity(Date createAtCity) {
+		this.createAtCity = createAtCity;
 	}
 
-	public Date getUpdateAtCountry() {
-		return updateAtCountry;
+	public Date getUpdateAtCity() {
+		return updateAtCity;
 	}
 
-	public void setUpdateAtCountry(Date updateAtCountry) {
-		this.updateAtCountry = updateAtCountry;
+	public void setUpdateAtCity(Date updateAtCity) {
+		this.updateAtCity = updateAtCity;
 	}
 
 	public CountryEntity getCountry() {
@@ -86,7 +81,5 @@ public class CityEntity {
 	public void setCountry(CountryEntity country) {
 		this.country = country;
 	}
-	  
-	  
 
 }

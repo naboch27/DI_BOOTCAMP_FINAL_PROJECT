@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ada.ci.TCHENGA.models.CityEntity;
-import com.ada.ci.TCHENGA.models.CountryEntity;
 import com.ada.ci.TCHENGA.service.CityService;
-import com.ada.ci.TCHENGA.service.CountryService;
 
 @RestController
 
