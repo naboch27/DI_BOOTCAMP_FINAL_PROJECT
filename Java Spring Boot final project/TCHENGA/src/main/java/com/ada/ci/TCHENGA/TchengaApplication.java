@@ -1,4 +1,4 @@
-package com.ada.ci.project;
+package com.ada.ci.TCHENGA;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

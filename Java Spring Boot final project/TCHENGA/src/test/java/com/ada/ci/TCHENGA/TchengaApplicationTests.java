@@ -1,4 +1,4 @@
-package com.ada.ci.project;
+package com.ada.ci.TCHENGA;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
