@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 
 import com.ada.ci.TCHENGA.models.CountryEntity;
 import com.ada.ci.TCHENGA.service.CountryService;
@@ -37,24 +39,30 @@ public class CountryController {
 	}
 
 	@GetMapping("/{id}")
-	public Optional<CountryEntity> findById(@PathVariable("id") Integer id) {
-		return countryService.findById(id);
+	public ResponseEntity<CountryEntity> findById(@Validated @PathVariable("id") Integer id) {
+		Optional<CountryEntity> country = countryService.findById(id);
+
+	    if (country.isPresent()) {
+	      return ResponseEntity.ok().body(country.get());
+	    } else {
+	      return ResponseEntity.notFound().build();
+	    }
 	}
 
 	@PostMapping
-	public CountryEntity saveCountry(@RequestBody CountryEntity countryEntity) {
+	public ResponseEntity<CountryEntity> saveCountry(@Validated @RequestBody CountryEntity countryEntity) {
 		
-		return countryService.saveCountry(countryEntity);
+		 return new ResponseEntity<>(countryService.saveCountry(countryEntity), HttpStatus.CREATED);
 	}
 
 	@PutMapping
-	public CountryEntity updateCountry(@RequestBody CountryEntity countryEntity) {
+	public ResponseEntity<CountryEntity> updateCountry(@RequestBody CountryEntity countryEntity) {
 
-		return countryService.updateCountry(countryEntity);
+		 return new ResponseEntity<>(countryService.updateCountry(countryEntity), HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteCountry(@PathVariable("id") Integer id) {
+	public void deleteCountry(@Validated @PathVariable("id") Integer id) {
 		countryService.deleteCountry(id);
 	}
 

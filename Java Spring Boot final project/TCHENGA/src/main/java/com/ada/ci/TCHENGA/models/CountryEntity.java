@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 
 /**
@@ -25,6 +28,7 @@ public class CountryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer countryId;
+	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name="name")
 	private String countryName;
 	@Column(name="create_at")
