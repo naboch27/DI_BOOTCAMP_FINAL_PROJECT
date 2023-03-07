@@ -3,10 +3,13 @@ package com.ada.ci.TCHENGA.implement;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.ada.ci.TCHENGA.models.MunicipalitiesEntity;
 import com.ada.ci.TCHENGA.repository.MunicipalitiesRepository;
 import com.ada.ci.TCHENGA.service.MunicipalitiesService;
 
+@Service
 public class MunicipalitiesImplement implements MunicipalitiesService{
 	
 	private final MunicipalitiesRepository municipalitiesRepository;
