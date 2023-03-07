@@ -2,7 +2,6 @@ package com.ada.ci.TCHENGA.models;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,7 +15,10 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Builder;
+
 @Entity
+@Builder
 @Table(name = "city")
 public class CityEntity {
 
@@ -32,7 +34,7 @@ public class CityEntity {
 	@Column(name = "update_at")
 	private Date updateAtCity;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name = "countryId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private CountryEntity country;

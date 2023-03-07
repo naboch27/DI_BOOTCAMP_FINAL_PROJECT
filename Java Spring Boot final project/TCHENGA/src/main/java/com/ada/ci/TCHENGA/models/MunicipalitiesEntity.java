@@ -24,6 +24,7 @@ public class MunicipalitiesEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer municipalitieId;
+	
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "name")
 	private String municipalitieName;

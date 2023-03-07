@@ -3,6 +3,7 @@ package com.ada.ci.TCHENGA.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.ada.ci.TCHENGA.service.CountryService;
 @RestController
 
 @RequestMapping("/public/api/v1/country")
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class CountryController {
 
 	public final CountryService countryService;
@@ -50,7 +52,8 @@ public class CountryController {
 	}
 
 	@PostMapping
-	public ResponseEntity<CountryEntity> saveCountry(@Validated @RequestBody CountryEntity countryEntity) {
+	public ResponseEntity<CountryEntity> saveCountry( @RequestBody @Validated CountryEntity countryEntity) {
+		System.out.println(countryEntity);
 		
 		 return new ResponseEntity<>(countryService.saveCountry(countryEntity), HttpStatus.CREATED);
 	}
