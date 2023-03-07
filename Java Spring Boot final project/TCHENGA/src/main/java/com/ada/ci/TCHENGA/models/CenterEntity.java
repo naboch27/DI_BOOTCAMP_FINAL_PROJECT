@@ -20,142 +20,119 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "center")
 public class CenterEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer idCenter;
-	
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "name")
 	private String nameCenter;
-	
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "email")
 	@Email
-    private String emailCenter;
-	
+	private String emailCenter;
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "code")
-    private String codeCenter;
-	
+	private String codeCenter;
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "phone")
-    private String phoneCenter;
-	
+	private String phoneCenter;
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "adresse")
-    private String adresseCenter;
-	
+	private String adresseCenter;
+
 	@Column(name = "create_at")
-	private Date createAtCity;
-	
+	private Date createAtCenter;
+
 	@Column(name = "update_at")
-	private Date updateAtCity;
-    
-	
+	private Date updateAtCenter;
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "municipalitieId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private MunicipalitiesEntity municipalities;
-
 
 	public CenterEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public Integer getIdCenter() {
 		return idCenter;
 	}
-
 
 	public void setIdCenter(Integer idCenter) {
 		this.idCenter = idCenter;
 	}
 
-
 	public String getNameCenter() {
 		return nameCenter;
 	}
-
 
 	public void setNameCenter(String nameCenter) {
 		this.nameCenter = nameCenter;
 	}
 
-
 	public String getEmailCenter() {
 		return emailCenter;
 	}
-
 
 	public void setEmailCenter(String emailCenter) {
 		this.emailCenter = emailCenter;
 	}
 
-
 	public String getCodeCenter() {
 		return codeCenter;
 	}
-
 
 	public void setCodeCenter(String codeCenter) {
 		this.codeCenter = codeCenter;
 	}
 
-
 	public String getPhoneCenter() {
 		return phoneCenter;
 	}
-
 
 	public void setPhoneCenter(String phoneCenter) {
 		this.phoneCenter = phoneCenter;
 	}
 
-
 	public String getAdresseCenter() {
 		return adresseCenter;
 	}
-
 
 	public void setAdresseCenter(String adresseCenter) {
 		this.adresseCenter = adresseCenter;
 	}
 
-
-	public Date getCreateAtCity() {
-		return createAtCity;
+	public Date getCreateAtCenter() {
+		return createAtCenter;
 	}
 
-
-	public void setCreateAtCity(Date createAtCity) {
-		this.createAtCity = createAtCity;
+	public void setCreateAtCenter(Date createAtCenter) {
+		this.createAtCenter = createAtCenter;
 	}
 
-
-	public Date getUpdateAtCity() {
-		return updateAtCity;
+	public Date getUpdateAtCenter() {
+		return updateAtCenter;
 	}
 
-
-	public void setUpdateAtCity(Date updateAtCity) {
-		this.updateAtCity = updateAtCity;
+	public void setUpdateAtCenter(Date updateAtCenter) {
+		this.updateAtCenter = updateAtCenter;
 	}
-
 
 	public MunicipalitiesEntity getMunicipalities() {
 		return municipalities;
 	}
 
-
 	public void setMunicipalities(MunicipalitiesEntity municipalities) {
 		this.municipalities = municipalities;
 	}
-	
-	
-	
 
 }
