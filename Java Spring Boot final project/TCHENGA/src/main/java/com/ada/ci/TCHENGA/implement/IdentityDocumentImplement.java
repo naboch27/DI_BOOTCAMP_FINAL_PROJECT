@@ -2,10 +2,15 @@ package com.ada.ci.TCHENGA.implement;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 import com.ada.ci.TCHENGA.models.IdentityDocumentEntity;
 import com.ada.ci.TCHENGA.repository.IdentityDocumentRepository;
 import com.ada.ci.TCHENGA.service.IdentityDocumentService;
 
+
+@Service
 public class IdentityDocumentImplement implements IdentityDocumentService{
 	
 	private final IdentityDocumentRepository identitydocumentRepository;

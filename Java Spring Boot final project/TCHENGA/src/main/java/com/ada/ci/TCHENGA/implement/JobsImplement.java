@@ -2,10 +2,15 @@ package com.ada.ci.TCHENGA.implement;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 import com.ada.ci.TCHENGA.models.JobsEntity;
 import com.ada.ci.TCHENGA.repository.JobsRepository;
 import com.ada.ci.TCHENGA.service.JobsService;
 
+
+@Service
 public class JobsImplement  implements JobsService{
 	
 	private final JobsRepository jobsRepository;
