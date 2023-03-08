@@ -15,10 +15,8 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Builder;
 
 @Entity
-@Builder
 @Table(name = "city")
 public class CityEntity {
 
