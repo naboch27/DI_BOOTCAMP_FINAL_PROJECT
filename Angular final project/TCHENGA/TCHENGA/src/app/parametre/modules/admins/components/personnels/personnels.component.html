@@ -1,0 +1,153 @@
+<ng-template #content let-c="close" let-d="dismiss" >
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Enregistrement du Personnel</h4>
+		<button type="button" class="btn-close bg-danger" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Hello, World!</p>
+        <div class="row col-md-12">
+            <div class="col-md-6 ">
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <div class="input-group flex-nowrap">
+                        <input type="hidden" name="">
+                        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                        <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                            aria-describedby="addon-wrapping">
+
+                    </div>
+                  </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="hidden" name="">
+                            <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                            <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+    
+                        </div>
+                      </div>
+                </div>
+        </div>
+        <div class="row col-md-12 mt-4">
+            <div class="col-md-6 ">
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <div class="input-group flex-nowrap">
+                        <input type="hidden" name="">
+                        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                        <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                            aria-describedby="addon-wrapping">
+
+                    </div>
+                  </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="hidden" name="">
+                            <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                            <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+    
+                        </div>
+                      </div>
+                </div>
+        </div>
+        <div class="row col-md-12 mt-4">
+            <div class="col-md-6 ">
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <div class="input-group flex-nowrap">
+                        <input type="hidden" name="">
+                        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                        <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                            aria-describedby="addon-wrapping">
+
+                    </div>
+                  </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="hidden" name="">
+                            <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                            <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+    
+                        </div>
+                      </div>
+                </div>
+        </div>
+        <div class="row col-md-12 mt-4">
+            <div class="col-md-6 ">
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <div class="input-group flex-nowrap">
+                        <input type="hidden" name="">
+                        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                        <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                            aria-describedby="addon-wrapping">
+
+                    </div>
+                  </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="hidden" name="">
+                            <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                            <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+    
+                        </div>
+                      </div>
+                </div>
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-success" (click)="c('Save click')">Submit</button>
+	</div>
+</ng-template>
+
+<div class="row ">
+    <div class="col-md-8 ">
+       <h5>Personnels</h5> 
+     </div>
+    <div class="col-md-4 ">
+        <button class="btn btn-lg btn-outline-primary "   (click)="open(content)" >Nouvel Enregistrement </button>
+
+    </div>
+    
+</div>
+
+<div class="row col-md-12 mt-5">
+    <h5 class="text-center text-decoration-underline">Table Personnels</h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">N</th>
+                <th scope="col">Name Country</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>@fat</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

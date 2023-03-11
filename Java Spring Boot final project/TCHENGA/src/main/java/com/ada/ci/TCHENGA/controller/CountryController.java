@@ -20,7 +20,6 @@ import com.ada.ci.TCHENGA.models.CountryEntity;
 import com.ada.ci.TCHENGA.service.CountryService;
 
 @RestController
-
 @RequestMapping("/public/api/v1/country")
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 public class CountryController {

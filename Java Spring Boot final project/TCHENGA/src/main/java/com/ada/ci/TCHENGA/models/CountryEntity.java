@@ -26,11 +26,14 @@ public class CountryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer countryId;
+	
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name="name")
 	private String countryName;
+	
 	@Column(name="create_at")
 	private Date createAtCountry;
+	
 	@Column(name="update_at")
 	private Date  updateAtCountry;
 	

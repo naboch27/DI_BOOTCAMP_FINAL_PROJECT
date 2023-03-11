@@ -1,0 +1,48 @@
+<h4 class="">Dashboard Country</h4>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-bg-light mb-3 mt-4 me-5" style="max-width: 25rem;">
+            <div class="card-header">Country</div>
+            <div class="card-body">
+                <h5 class="card-title">Name</h5>
+                <form (ngSubmit)="addCountry()" >
+                    <div class="input-group flex-nowrap">
+                        <input type="hidden" >
+                        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+                        <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
+                            aria-describedby="addon-wrapping" [(ngModel)]="icountry.countryName" [ngModelOptions]="{standalone: true}">
+
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-info mt-4 text-white " style="margin-left: 170px;"><i
+                                class="fa fa-check" style="margin-right: 2px;"></i>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="mt-4">
+            <h5 class="text-center text-decoration-underline">Table Contry</h5>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">N</th>
+                        <th scope="col">Name Country</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let result of t_country">
+                        <th scope="row">2</th>
+                        <td>{{result.countryName}}</td>
+                        <td>@fat</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

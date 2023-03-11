@@ -24,11 +24,14 @@ public class CityEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer cityId;
+	
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "name")
 	private String cityName;
+	
 	@Column(name = "create_at")
-	private Date createAtCity;
+	private String createAtCity;
+	
 	@Column(name = "update_at")
 	private Date updateAtCity;
 
@@ -58,11 +61,11 @@ public class CityEntity {
 		this.cityName = cityName;
 	}
 
-	public Date getCreateAtCity() {
+	public String getCreateAtCity() {
 		return createAtCity;
 	}
 
-	public void setCreateAtCity(Date createAtCity) {
+	public void setCreateAtCity(String createAtCity) {
 		this.createAtCity = createAtCity;
 	}
 
@@ -82,4 +85,5 @@ public class CityEntity {
 		this.country = country;
 	}
 
+	
 }
