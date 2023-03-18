@@ -3,7 +3,6 @@
  */
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,44 +12,70 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 
-
 /**
- * @author M.COULIBALY
- *
+ * Country class with attributes, setters and getters Attributes
+ * :id,name,create_at,update_at
  */
 @Entity
-@Table(name= "country")
+@Table(name = "country")
 public class CountryEntity {
-	
+
+	// Attributes
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private Integer countryId;
-	
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
-	@Column(name="name")
+	@Column(name = "name")
+	
 	private String countryName;
-	
-	@Column(name="create_at")
-	private Date createAtCountry;
-	
-	@Column(name="update_at")
-	private Date  updateAtCountry;
-	
-	
+
+	@Column(name = "create_at",updatable = false)
+	private String createAtCountry;
+
+	@Column(name = "update_at")
+	private String updateAtCountry;
+
+	// default constructor
 	
 	public CountryEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
+	
+	
+	// setters and getters
 
 	public Integer getCountryId() {
 		return countryId;
 	}
 
+	public String getCountryName() {
+		return countryName;
+	}
 
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+
+	public String getCreateAtCountry() {
+		return createAtCountry;
+	}
+
+	public void setCreateAtCountry(String createAtCountry) {
+		this.createAtCountry = createAtCountry;
+	}
+
+	public String getUpdateAtCountry() {
+		return updateAtCountry;
+	}
+
+	public void setUpdateAtCountry(String updateAtCountry) {
+		this.updateAtCountry = updateAtCountry;
+	}
 
 	public void setCountryId(Integer countryId) {
 		this.countryId = countryId;
@@ -58,39 +83,6 @@ public class CountryEntity {
 
 
 
-	public String getCountryName() {
-		return countryName;
-	}
-
-
-
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
-	}
-
-
-
-	public Date getCreateAtCountry() {
-		return createAtCountry;
-	}
-
-
-
-	public void setCreateAtCountry(Date createAtCountry) {
-		this.createAtCountry = createAtCountry;
-	}
-
-
-
-	public Date getUpdateAtCountry() {
-		return updateAtCountry;
-	}
-
-
-
-	public void setUpdateAtCountry(Date updateAtCountry) {
-		this.updateAtCountry = updateAtCountry;
-	}
-
+	
 	
 }

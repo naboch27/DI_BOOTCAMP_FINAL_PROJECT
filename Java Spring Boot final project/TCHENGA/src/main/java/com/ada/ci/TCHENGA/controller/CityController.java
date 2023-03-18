@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ import com.ada.ci.TCHENGA.models.CityEntity;
 import com.ada.ci.TCHENGA.service.CityService;
 
 @RestController
-
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 @RequestMapping("/public/api/v1/city")
 public class CityController {
 	
@@ -58,14 +59,28 @@ public class CityController {
 		
 		
 		DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
-        System.out.println("yyyy/MMMM/dd HH:mm:ss-> "+dtf3.format(LocalDateTime.now()));
-        cityEntity.setCreateAtCity(dtf3.format(LocalDateTime.now()));
+
+		System.out.println("yyyy/MMMM/dd HH:mm:ss-> " + dtf3.format(LocalDateTime.now()));
+
+		cityEntity.setCreateAtCity(dtf3.format(LocalDateTime.now()));
+
+		cityEntity.setUpdateAtCity(dtf3.format(LocalDateTime.now()));
 		
 		 return new ResponseEntity<>(cityService.saveCity(cityEntity), HttpStatus.CREATED);
 	}
 
 	@PutMapping
 	public ResponseEntity<CityEntity> updateCity(@RequestBody CityEntity cityEntity) {
+		
+		DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
+
+		System.out.println("yyyy/MMMM/dd HH:mm:ss-> " + dtf3.format(LocalDateTime.now()));
+
+		System.out.println(cityEntity.getCreateAtCity());
+		
+		cityEntity.setCreateAtCity(cityEntity.getCreateAtCity());
+		
+		cityEntity.setUpdateAtCity(dtf3.format(LocalDateTime.now()));
 
 		return new ResponseEntity<>(cityService.updateCity(cityEntity), HttpStatus.CREATED);
 	}

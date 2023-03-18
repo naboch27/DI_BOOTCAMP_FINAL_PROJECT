@@ -1,5 +1,7 @@
 package com.ada.ci.TCHENGA.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,15 +22,15 @@ import com.ada.ci.TCHENGA.models.CountryEntity;
 import com.ada.ci.TCHENGA.service.CountryService;
 
 @RestController
-@RequestMapping("/public/api/v1/country")
 @CrossOrigin(allowedHeaders = "*", origins = "*")
+@RequestMapping("/public/api/v1/country")
 public class CountryController {
 
 	public final CountryService countryService;
 
 	public CountryController(CountryService countryService) {
 		// TODO Auto-generated constructor stub
-		
+
 		this.countryService = countryService;
 
 	}
@@ -43,24 +45,42 @@ public class CountryController {
 	public ResponseEntity<CountryEntity> findById(@Validated @PathVariable("id") Integer id) {
 		Optional<CountryEntity> country = countryService.findById(id);
 
-	    if (country.isPresent()) {
-	      return ResponseEntity.ok().body(country.get());
-	    } else {
-	      return ResponseEntity.notFound().build();
-	    }
+		if (country.isPresent()) {
+			return ResponseEntity.ok().body(country.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 	@PostMapping
-	public ResponseEntity<CountryEntity> saveCountry( @RequestBody @Validated CountryEntity countryEntity) {
-		System.out.println(countryEntity);
-		
-		 return new ResponseEntity<>(countryService.saveCountry(countryEntity), HttpStatus.CREATED);
+	public ResponseEntity<CountryEntity> saveCountry(@RequestBody @Validated CountryEntity countryEntity) {
+
+		DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
+
+		System.out.println("yyyy/MMMM/dd HH:mm:ss-> " + dtf3.format(LocalDateTime.now()));
+
+		countryEntity.setCreateAtCountry(dtf3.format(LocalDateTime.now()));
+
+		countryEntity.setUpdateAtCountry(dtf3.format(LocalDateTime.now()));
+
+		return new ResponseEntity<>(countryService.saveCountry(countryEntity), HttpStatus.CREATED);
+
 	}
 
 	@PutMapping
-	public ResponseEntity<CountryEntity> updateCountry(@RequestBody CountryEntity countryEntity) {
+	public ResponseEntity<CountryEntity> updateCountry(@RequestBody @Validated CountryEntity countryEntity) {
 
-		 return new ResponseEntity<>(countryService.updateCountry(countryEntity), HttpStatus.CREATED);
+		DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
+
+		System.out.println("yyyy/MMMM/dd HH:mm:ss-> " + dtf3.format(LocalDateTime.now()));
+
+		System.out.println(countryEntity.getCreateAtCountry());
+		
+		countryEntity.setCreateAtCountry(countryEntity.getCreateAtCountry());
+		
+		countryEntity.setUpdateAtCountry(dtf3.format(LocalDateTime.now()));
+
+		return new ResponseEntity<>(countryService.updateCountry(countryEntity), HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/{id}")

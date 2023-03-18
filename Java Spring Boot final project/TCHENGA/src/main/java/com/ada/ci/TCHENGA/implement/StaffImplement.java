@@ -5,50 +5,50 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.ada.ci.TCHENGA.models.PersonnelEntity;
-import com.ada.ci.TCHENGA.repository.PersonnelRepository;
-import com.ada.ci.TCHENGA.service.PersonnelService;
+import com.ada.ci.TCHENGA.models.StaffEntity;
+import com.ada.ci.TCHENGA.repository.StaffRepository;
+import com.ada.ci.TCHENGA.service.StaffService;
 
 @Service
-public class PersonnelImplement implements PersonnelService{
+public class StaffImplement implements StaffService{
 
-	private final PersonnelRepository personnelRepository;
+	private final StaffRepository staffRepository;
 	
 	
 	
-	public PersonnelImplement(PersonnelRepository personnelRepository) {
+	public StaffImplement(StaffRepository staffRepository) {
 		super();
-		this.personnelRepository = personnelRepository;
+		this.staffRepository = staffRepository;
 	}
 
 	@Override
-	public List<PersonnelEntity> findAllPersonnel() {
+	public List<StaffEntity> findAllStaff() {
 		// TODO Auto-generated method stub
-		return (List<PersonnelEntity>) personnelRepository.findAll();
+		return (List<StaffEntity>) staffRepository.findAll();
 	}
 
 	@Override
-	public Optional<PersonnelEntity> findById(Integer id) {
+	public Optional<StaffEntity> findById(Integer id) {
 		// TODO Auto-generated method stub
-		return personnelRepository.findById(id);
+		return staffRepository.findById(id);
 	}
 
 	@Override
-	public PersonnelEntity savePersonnel(PersonnelEntity personnelEntity) {
+	public StaffEntity saveStaff(StaffEntity staffEntity) {
 		// TODO Auto-generated method stub
-		return personnelRepository.save(personnelEntity);
+		return staffRepository.save(staffEntity);
 	}
 
 	@Override
-	public PersonnelEntity updatePersonnel(PersonnelEntity personnelEntity) {
+	public StaffEntity updateStaff(StaffEntity staffEntity) {
 		// TODO Auto-generated method stub
-		return personnelRepository.save(personnelEntity);
+		return staffRepository.save(staffEntity);
 	}
 
 	@Override
-	public void deletePersonnel(Integer id) {
+	public void deleteStaff(Integer id) {
 		// TODO Auto-generated method stub
-		personnelRepository.deleteById(id);
+		staffRepository.deleteById(id);
 	}
 
 }

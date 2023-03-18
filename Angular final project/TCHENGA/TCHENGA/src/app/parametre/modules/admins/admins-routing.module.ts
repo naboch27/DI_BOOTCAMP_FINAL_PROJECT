@@ -10,8 +10,10 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { MunicipalitiesComponent } from './components/municipalities/municipalities.component';
 import { PersonnelsComponent } from './components/personnels/personnels.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 
 const routes: Routes = [
+  { path: 'api/v1/admin/login', component: LoginAdminComponent },
   {
 
     path: '', component: AdminDashboardComponent,
@@ -26,6 +28,8 @@ const routes: Routes = [
       { path: 'document', component: DocumentComponent },
       { path: 'personnels', component: PersonnelsComponent },
       { path: 'compte_donor', component: CompteDonorComponent }
+     
+      
 
     ]
   },

@@ -1,8 +1,5 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,33 +13,48 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Municipalities class with attributes, setters and getters Attributes:
+ * id,name,create_at,update_at
+ */
+
 @Entity
 @Table(name = "municipalitie")
 public class MunicipalitiesEntity {
-	
+
+	// Attributes
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer municipalitieId;
-	
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "name")
 	private String municipalitieName;
-	@Column(name = "create_at")
-	private Date createAtMunicipalitie;
+	
+	@Column(name = "create_at",updatable = false)
+	private String createAtMunicipalitie;
+	
 	@Column(name = "update_at")
-	private Date updateAtMunicipalitie;
+	private String updateAtMunicipalitie;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	// join country
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cityId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private CityEntity city;
+
+	// Default constructor
 
 	public MunicipalitiesEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	// Setters and getters
+	
 	public Integer getMunicipalitieId() {
 		return municipalitieId;
 	}
@@ -59,19 +71,19 @@ public class MunicipalitiesEntity {
 		this.municipalitieName = municipalitieName;
 	}
 
-	public Date getCreateAtMunicipalitie() {
+	public String getCreateAtMunicipalitie() {
 		return createAtMunicipalitie;
 	}
 
-	public void setCreateAtMunicipalitie(Date createAtMunicipalitie) {
+	public void setCreateAtMunicipalitie(String createAtMunicipalitie) {
 		this.createAtMunicipalitie = createAtMunicipalitie;
 	}
 
-	public Date getUpdateAtMunicipalitie() {
+	public String getUpdateAtMunicipalitie() {
 		return updateAtMunicipalitie;
 	}
 
-	public void setUpdateAtMunicipalitie(Date updateAtMunicipalitie) {
+	public void setUpdateAtMunicipalitie(String updateAtMunicipalitie) {
 		this.updateAtMunicipalitie = updateAtMunicipalitie;
 	}
 
@@ -82,8 +94,9 @@ public class MunicipalitiesEntity {
 	public void setCity(CityEntity city) {
 		this.city = city;
 	}
-	
+
 	
 
 	
+
 }

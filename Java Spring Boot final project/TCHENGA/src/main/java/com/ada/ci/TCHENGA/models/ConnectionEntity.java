@@ -1,6 +1,5 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,9 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * Connection class with attributes, setters and getters Attributes:
+ * id,name,create_at,update_at
+ */
+
 @Entity
 @Table(name = "connection")
 public class ConnectionEntity {
+
+	// Attributes
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,15 +29,19 @@ public class ConnectionEntity {
 	@Column(name = "login")
 	private String login;
 
-	@Column(name = "create_at")
-	private Date createAtConnection;
+	@Column(name = "create_at",updatable = false)
+	private String createAtConnection;
 
 	@Column(name = "update_at")
-	private Date updateAtConnection;
+	private String updateAtConnection;
+
+	// Default constructor
 
 	public ConnectionEntity() {
 		super();
 	}
+	
+	// Setters and getters
 
 	public Integer getConnectionId() {
 		return connectionId;
@@ -49,21 +59,23 @@ public class ConnectionEntity {
 		this.login = login;
 	}
 
-	public Date getCreateAtConnection() {
+	public String getCreateAtConnection() {
 		return createAtConnection;
 	}
 
-	public void setCreateAtConnection(Date createAtConnection) {
+	public void setCreateAtConnection(String createAtConnection) {
 		this.createAtConnection = createAtConnection;
 	}
 
-	public Date getUpdateAtConnection() {
+	public String getUpdateAtConnection() {
 		return updateAtConnection;
 	}
 
-	public void setUpdateAtConnection(Date updateAtConnection) {
+	public void setUpdateAtConnection(String updateAtConnection) {
 		this.updateAtConnection = updateAtConnection;
 	}
+
+	
 
 	
 

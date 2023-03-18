@@ -1,6 +1,5 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,35 +14,47 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * City class with attributes, setters and getters Attributes:
+ * id,name,create_at,update_at
+ */
 
 @Entity
 @Table(name = "city")
 public class CityEntity {
 
+	// Attributes
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer cityId;
-	
+
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "name")
 	private String cityName;
-	
-	@Column(name = "create_at")
-	private String createAtCity;
-	
-	@Column(name = "update_at")
-	private Date updateAtCity;
 
-	@ManyToOne( fetch = FetchType.LAZY)
+	@Column(name = "create_at",updatable = false)
+	private String createAtCity;
+
+	@Column(name = "update_at")
+	private String updateAtCity;
+
+	// join country
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "countryId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private CountryEntity country;
+
+	// Default constructor
 
 	public CityEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	// Setters and getters
 
 	public Integer getCityId() {
 		return cityId;
@@ -69,11 +80,11 @@ public class CityEntity {
 		this.createAtCity = createAtCity;
 	}
 
-	public Date getUpdateAtCity() {
+	public String getUpdateAtCity() {
 		return updateAtCity;
 	}
 
-	public void setUpdateAtCity(Date updateAtCity) {
+	public void setUpdateAtCity(String updateAtCity) {
 		this.updateAtCity = updateAtCity;
 	}
 

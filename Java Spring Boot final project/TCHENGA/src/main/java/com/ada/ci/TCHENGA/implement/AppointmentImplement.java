@@ -5,48 +5,48 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.ada.ci.TCHENGA.models.RendezVousEntity;
-import com.ada.ci.TCHENGA.repository.RendezVousRepository;
-import com.ada.ci.TCHENGA.service.RendezVousService;
+import com.ada.ci.TCHENGA.models.AppointmentEntity;
+import com.ada.ci.TCHENGA.repository.AppointmentRepository;
+import com.ada.ci.TCHENGA.service.AppointmentService;
 
 @Service
-public class RendezVousImplement implements RendezVousService{
+public class AppointmentImplement implements AppointmentService{
 	
-	private final RendezVousRepository rendezVousRepository;
+	private final AppointmentRepository appointmentRepository;
 
-	public RendezVousImplement(RendezVousRepository rendezVousRepository) {
+	public AppointmentImplement(AppointmentRepository appointmentRepository) {
 		super();
-		this.rendezVousRepository = rendezVousRepository;
+		this.appointmentRepository = appointmentRepository;
 	}
 
 	@Override
-	public List<RendezVousEntity> findAllRendezVous() {
+	public List<AppointmentEntity> findAllAppointment() {
 		// TODO Auto-generated method stub
-		return (List<RendezVousEntity>) rendezVousRepository.findAll();
+		return (List<AppointmentEntity>) appointmentRepository.findAll();
 	}
 
 	@Override
-	public Optional<RendezVousEntity> findById(Integer id) {
+	public Optional<AppointmentEntity> findById(Integer id) {
 		// TODO Auto-generated method stub
-		return rendezVousRepository.findById(id);
+		return appointmentRepository.findById(id);
 	}
 
 	@Override
-	public RendezVousEntity saveRendezVous(RendezVousEntity rendezVousEntity) {
+	public AppointmentEntity saveAppointment(AppointmentEntity appointmentEntity) {
 		// TODO Auto-generated method stub
-		return rendezVousRepository.save(rendezVousEntity);
+		return appointmentRepository.save(appointmentEntity);
 	}
 
 	@Override
-	public RendezVousEntity updateRendezVous(RendezVousEntity rendezVousEntity) {
+	public AppointmentEntity updateAppointment(AppointmentEntity appointmentEntity) {
 		// TODO Auto-generated method stub
-		return rendezVousRepository.save(rendezVousEntity);
+		return appointmentRepository.save(appointmentEntity);
 	}
 
 	@Override
-	public void deleteRendezVous(Integer id) {
+	public void deleteAppointment(Integer id) {
 		// TODO Auto-generated method stub
-		rendezVousRepository.deleteById(id);
+		appointmentRepository.deleteById(id);
 	}
 	
 	

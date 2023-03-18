@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: 'consulter', component: ConsultationComponent },
   { path: 'compte', component: CompteComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'api/v1/admin/login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'datable', component:DatableComponent },
   //route Child admins

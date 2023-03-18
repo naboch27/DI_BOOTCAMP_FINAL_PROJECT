@@ -1,72 +1,102 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+/**
+ * Appointment class with attributes, setters and getters Attributes:
+ * id,name,create_at,update_at
+ */
+
 @Entity
-@Table(name = "rendez_vous")
-public class RendezVousEntity {
-	
+@Table(name = "appointment")
+public class AppointmentEntity {
+
+	// Attributes
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Integer IdRendezVous;
-	
-	@Column(name = "date_rendez_vous")
-	private Date dateRendezVous;
-	
-	@Column(name = "create_at")
-	private Date createAtRendezVous;
-	
-	@Column(name = "update_at")
-	private Date updateAtRendezVous;
+	private Integer IdAppointment;
 
-	public RendezVousEntity() {
+	@Column(name = "create_at",updatable = false)
+	private String createAtAppointment;
+
+	@Column(name = "update_at")
+	private String updateAtAppointment;
+
+	// join country
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idPeson")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private DonorEntity donorEntity;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCenter")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private CenterEntity centerEntity;
+
+	// Default constructor
+
+	public AppointmentEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	// Setters and getters
 
-	public Integer getIdRendezVous() {
-		return IdRendezVous;
+	public Integer getIdAppointment() {
+		return IdAppointment;
 	}
 
-	public void setIdRendezVous(Integer idRendezVous) {
-		IdRendezVous = idRendezVous;
+	public void setIdAppointment(Integer idAppointment) {
+		IdAppointment = idAppointment;
 	}
 
-	public Date getDateRendezVous() {
-		return dateRendezVous;
+	public String getCreateAtAppointment() {
+		return createAtAppointment;
 	}
 
-	public void setDateRendezVous(Date dateRendezVous) {
-		this.dateRendezVous = dateRendezVous;
+	public void setCreateAtAppointment(String createAtAppointment) {
+		this.createAtAppointment = createAtAppointment;
 	}
 
-	public Date getCreateAtRendezVous() {
-		return createAtRendezVous;
+	public String getUpdateAtAppointment() {
+		return updateAtAppointment;
 	}
 
-	public void setCreateAtRendezVous(Date createAtRendezVous) {
-		this.createAtRendezVous = createAtRendezVous;
+	public void setUpdateAtAppointment(String updateAtAppointment) {
+		this.updateAtAppointment = updateAtAppointment;
 	}
 
-	public Date getUpdateAtRendezVous() {
-		return updateAtRendezVous;
+	public DonorEntity getDonorEntity() {
+		return donorEntity;
 	}
 
-	public void setUpdateAtRendezVous(Date updateAtRendezVous) {
-		this.updateAtRendezVous = updateAtRendezVous;
+	public void setDonorEntity(DonorEntity donorEntity) {
+		this.donorEntity = donorEntity;
 	}
 
+	public CenterEntity getCenterEntity() {
+		return centerEntity;
+	}
+
+	public void setCenterEntity(CenterEntity centerEntity) {
+		this.centerEntity = centerEntity;
+	}
 
 	
-	
 
+	
 }

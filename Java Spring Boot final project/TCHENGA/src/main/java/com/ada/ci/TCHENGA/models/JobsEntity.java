@@ -1,7 +1,5 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +9,17 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 
+/**
+ * Jobs class with attributes, setters and getters Attributes:
+ * id,name,create_at,update_at
+ */
+
+
 @Entity
 @Table(name = "jobs")
 public class JobsEntity {
+	
+	//Attributes
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,16 +30,20 @@ public class JobsEntity {
 	@Column(name = "name")
 	private String jobsName;
 	
-	@Column(name = "create_at")
-	private Date createAtJobs;
+	@Column(name = "create_at",updatable = false)
+	private String createAtJobs;
 	
 	@Column(name = "update_at")
-	private Date updateAtJobs;
+	private String updateAtJobs;
+	
+	//Default constructor
 
 	public JobsEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	//Setters and getters
 
 	public Integer getJobsId() {
 		return jobsId;
@@ -51,21 +61,22 @@ public class JobsEntity {
 		this.jobsName = jobsName;
 	}
 
-	public Date getCreateAtJobs() {
+	public String getCreateAtJobs() {
 		return createAtJobs;
 	}
 
-	public void setCreateAtJobs(Date createAtJobs) {
+	public void setCreateAtJobs(String createAtJobs) {
 		this.createAtJobs = createAtJobs;
 	}
 
-	public Date getUpdateAtJobs() {
+	public String getUpdateAtJobs() {
 		return updateAtJobs;
 	}
 
-	public void setUpdateAtJobs(Date updateAtJobs) {
+	public void setUpdateAtJobs(String updateAtJobs) {
 		this.updateAtJobs = updateAtJobs;
 	}
+
 	
 	
 	

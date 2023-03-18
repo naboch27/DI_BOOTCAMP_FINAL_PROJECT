@@ -1,8 +1,5 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,10 +14,17 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * center class with attributes, setters and getters Attributes:
+ * id,name,email,code phone,address,create_at,update_at
+ */
+
 @Entity
 @Table(name = "center")
 public class CenterEntity {
 
+	//Attributes
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -47,21 +51,27 @@ public class CenterEntity {
 	@Column(name = "adresse")
 	private String adresseCenter;
 
-	@Column(name = "create_at")
-	private Date createAtCenter;
+	@Column(name = "create_at",updatable = false)
+	private String createAtCenter;
 
 	@Column(name = "update_at")
-	private Date updateAtCenter;
+	private String updateAtCenter;
+	
+	//join
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name = "municipalitieId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private MunicipalitiesEntity municipalities;
+	
+	//Default Constructor
 
 	public CenterEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	//Setters and getters
 
 	public Integer getIdCenter() {
 		return idCenter;
@@ -111,19 +121,19 @@ public class CenterEntity {
 		this.adresseCenter = adresseCenter;
 	}
 
-	public Date getCreateAtCenter() {
+	public String getCreateAtCenter() {
 		return createAtCenter;
 	}
 
-	public void setCreateAtCenter(Date createAtCenter) {
+	public void setCreateAtCenter(String createAtCenter) {
 		this.createAtCenter = createAtCenter;
 	}
 
-	public Date getUpdateAtCenter() {
+	public String getUpdateAtCenter() {
 		return updateAtCenter;
 	}
 
-	public void setUpdateAtCenter(Date updateAtCenter) {
+	public void setUpdateAtCenter(String updateAtCenter) {
 		this.updateAtCenter = updateAtCenter;
 	}
 
@@ -134,5 +144,8 @@ public class CenterEntity {
 	public void setMunicipalities(MunicipalitiesEntity municipalities) {
 		this.municipalities = municipalities;
 	}
+	
+	
 
+	
 }

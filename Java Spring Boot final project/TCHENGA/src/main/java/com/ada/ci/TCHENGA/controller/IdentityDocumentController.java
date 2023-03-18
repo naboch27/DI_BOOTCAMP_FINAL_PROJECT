@@ -1,11 +1,14 @@
 package com.ada.ci.TCHENGA.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +21,7 @@ import com.ada.ci.TCHENGA.models.IdentityDocumentEntity;
 import com.ada.ci.TCHENGA.service.IdentityDocumentService;
 
 @RestController
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 @RequestMapping("/public/api/v1/document")
 public class IdentityDocumentController {
 	
@@ -48,12 +52,30 @@ public class IdentityDocumentController {
 	@PostMapping
 	public ResponseEntity<IdentityDocumentEntity> saveIdentityDocument(@Validated @RequestBody IdentityDocumentEntity identityDocumentEntity) {
 		
+		DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
+
+		System.out.println("yyyy/MMMM/dd HH:mm:ss-> " + dtf3.format(LocalDateTime.now()));
+
+		identityDocumentEntity.setCreateAtIdentityDocument(dtf3.format(LocalDateTime.now()));
+
+		identityDocumentEntity.setUpdateAtIdentityDocument(dtf3.format(LocalDateTime.now()));
+		
 		 return new ResponseEntity<>(identityDocumentService.saveIdentityDocument(identityDocumentEntity), HttpStatus.CREATED);
 	}
 
 	@PutMapping
 	public ResponseEntity<IdentityDocumentEntity> updateIdentityDocument(@RequestBody IdentityDocumentEntity identityDocumentEntity) {
 
+		DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
+
+		System.out.println("yyyy/MMMM/dd HH:mm:ss-> " + dtf3.format(LocalDateTime.now()));
+
+		System.out.println(identityDocumentEntity.getCreateAtIdentityDocument());
+		
+		identityDocumentEntity.setCreateAtIdentityDocument(identityDocumentEntity.getCreateAtIdentityDocument());
+		
+		identityDocumentEntity.setUpdateAtIdentityDocument(dtf3.format(LocalDateTime.now()));
+		
 		return new ResponseEntity<>(identityDocumentService.updateIdentityDocument(identityDocumentEntity), HttpStatus.CREATED);
 	}
 

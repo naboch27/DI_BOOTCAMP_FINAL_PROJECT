@@ -3,18 +3,18 @@ package com.ada.ci.TCHENGA.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.ada.ci.TCHENGA.models.PersonnelEntity;
+import com.ada.ci.TCHENGA.models.StaffEntity;
 
-public interface PersonnelService {
+public interface StaffService {
 	
-	    public List<PersonnelEntity> findAllPersonnel();
+	    public List<StaffEntity> findAllStaff();
 		
-		public Optional<PersonnelEntity> findById(Integer id);
+		public Optional<StaffEntity> findById(Integer id);
 		
-		public PersonnelEntity savePersonnel(PersonnelEntity personnelEntity);
+		public StaffEntity saveStaff(StaffEntity staffEntity);
 		
-		public PersonnelEntity updatePersonnel(PersonnelEntity personnelEntity);
+		public StaffEntity updateStaff(StaffEntity staffEntity);
 		
-		public void deletePersonnel(Integer id);
+		public void deleteStaff(Integer id);
 
 }

@@ -1,7 +1,5 @@
 package com.ada.ci.TCHENGA.models;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,17 +13,23 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/*
+ *  Super class that will be inherited
+ *   by another class that contains attributes
+ * */
 @MappedSuperclass
-abstract public class PesonneEntity {
+abstract public class PersonEntity {
+
+	// Attributes
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Integer idPesonne;
+	private Integer idPeson;
 
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "first_name")
-	private String firstNamePersonne;
+	private String firstNamePerson;
 
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "last_name")
@@ -33,52 +37,68 @@ abstract public class PesonneEntity {
 
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "phone")
-	private String phonePersonne;
+	private String phonePerson;
 
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "email")
 	@Email
-	private String emailPersonal;
+	private String emailPerson;
 
 	@NotBlank(message = "Le champ name ne peut etre vide")
 	@Column(name = "adresse")
-	private String adressePersonne;
+	private String adressePerson;
 
-	@Column(name = "create_at")
-	private Date createAtPersonne;
+	@Column(name = "create_at",updatable = false)
+	private String createAtPerson;
 
 	@Column(name = "update_at")
-	private Date updateAtPersonne;
+	private String updateAtPerson;
 
-	@ManyToOne( fetch = FetchType.LAZY)
+	// joins a class
+/*
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "connectionId")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private ConnectionEntity connectionEntity;
+*/
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "municipalitieId")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private MunicipalitiesEntity municipalitiesEntity;
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "jobsId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private JobsEntity jobsEntity;
 
-	@ManyToOne( fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "identityDocumentId")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private IdentityDocumentEntity documentEntity;
 
-	public PesonneEntity() {
+	// Default constructor
+
+	public PersonEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	// Setters and Getters
 
-	public Integer getIdPesonne() {
-		return idPesonne;
+	public Integer getIdPeson() {
+		return idPeson;
 	}
 
-	public void setIdPesonne(Integer idPesonne) {
-		this.idPesonne = idPesonne;
+	public void setIdPeson(Integer idPeson) {
+		this.idPeson = idPeson;
 	}
 
-	public String getFirstNamePersonne() {
-		return firstNamePersonne;
+	public String getFirstNamePerson() {
+		return firstNamePerson;
 	}
 
-	public void setFirstNamePersonne(String firstNamePersonne) {
-		this.firstNamePersonne = firstNamePersonne;
+	public void setFirstNamePerson(String firstNamePerson) {
+		this.firstNamePerson = firstNamePerson;
 	}
 
 	public String getLastNamePersonne() {
@@ -89,44 +109,60 @@ abstract public class PesonneEntity {
 		this.lastNamePersonne = lastNamePersonne;
 	}
 
-	public String getPhonePersonne() {
-		return phonePersonne;
+	public String getPhonePerson() {
+		return phonePerson;
 	}
 
-	public void setPhonePersonne(String phonePersonne) {
-		this.phonePersonne = phonePersonne;
+	public void setPhonePerson(String phonePerson) {
+		this.phonePerson = phonePerson;
 	}
 
-	public String getEmailPersonal() {
-		return emailPersonal;
+	public String getEmailPerson() {
+		return emailPerson;
 	}
 
-	public void setEmailPersonal(String emailPersonal) {
-		this.emailPersonal = emailPersonal;
+	public void setEmailPerson(String emailPerson) {
+		this.emailPerson = emailPerson;
 	}
 
-	public String getAdressePersonne() {
-		return adressePersonne;
+	public String getAdressePerson() {
+		return adressePerson;
 	}
 
-	public void setAdressePersonne(String adressePersonne) {
-		this.adressePersonne = adressePersonne;
+	public void setAdressePerson(String adressePerson) {
+		this.adressePerson = adressePerson;
 	}
 
-	public Date getCreateAtPersonne() {
-		return createAtPersonne;
+	public String getCreateAtPerson() {
+		return createAtPerson;
 	}
 
-	public void setCreateAtPersonne(Date createAtPersonne) {
-		this.createAtPersonne = createAtPersonne;
+	public void setCreateAtPerson(String createAtPerson) {
+		this.createAtPerson = createAtPerson;
 	}
 
-	public Date getUpdateAtPersonne() {
-		return updateAtPersonne;
+	public String getUpdateAtPerson() {
+		return updateAtPerson;
 	}
 
-	public void setUpdateAtPersonne(Date updateAtPersonne) {
-		this.updateAtPersonne = updateAtPersonne;
+	public void setUpdateAtPerson(String updateAtPerson) {
+		this.updateAtPerson = updateAtPerson;
+	}
+/*
+	public ConnectionEntity getConnectionEntity() {
+		return connectionEntity;
+	}
+
+	public void setConnectionEntity(ConnectionEntity connectionEntity) {
+		this.connectionEntity = connectionEntity;
+	}
+*/
+	public MunicipalitiesEntity getMunicipalitiesEntity() {
+		return municipalitiesEntity;
+	}
+
+	public void setMunicipalitiesEntity(MunicipalitiesEntity municipalitiesEntity) {
+		this.municipalitiesEntity = municipalitiesEntity;
 	}
 
 	public JobsEntity getJobsEntity() {
@@ -145,4 +181,7 @@ abstract public class PesonneEntity {
 		this.documentEntity = documentEntity;
 	}
 
+	
+
+	
 }

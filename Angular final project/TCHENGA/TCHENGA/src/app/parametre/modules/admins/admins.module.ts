@@ -13,6 +13,7 @@ import { CenterComponent } from './components/center/center.component';
 import { PersonnelsComponent } from './components/personnels/personnels.component';
 import { CompteDonorComponent } from './components/compte-donor/compte-donor.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     DocumentComponent,
     CenterComponent,
     PersonnelsComponent,
-    CompteDonorComponent
+    CompteDonorComponent,
+    LoginAdminComponent
   ],
   imports: [
     CommonModule,
