@@ -9,10 +9,13 @@ import { DocumentComponent } from './components/document/document.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { MunicipalitiesComponent } from './components/municipalities/municipalities.component';
 import { PersonnelsComponent } from './components/personnels/personnels.component';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
+
     path: '', component: AdminDashboardComponent,
+    
     children: [
 
       { path: 'city', component: CityComponent },
@@ -32,7 +35,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),FormsModule,
+    ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AdminsRoutingModule { }

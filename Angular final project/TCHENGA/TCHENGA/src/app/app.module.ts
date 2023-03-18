@@ -13,8 +13,11 @@ import { LoginComponent } from './components/site/login/login.component';
 import { HeaderComponent } from './components/site/header/header.component';
 import { FooterComponent } from './components/site/footer/footer.component';
 import { NotFoundComponent } from './components/site/not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; 
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DatableComponent } from './page/datable/datable.component'; 
+import {DataTablesModule} from 'angular-datatables';
+
 
 @NgModule({
   declarations: [
@@ -27,15 +30,18 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DatableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbCarouselModule,
-    FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    DataTablesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

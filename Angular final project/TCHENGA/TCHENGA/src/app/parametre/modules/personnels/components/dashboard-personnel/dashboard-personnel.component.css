@@ -1,0 +1,7 @@
+.li-color-item{
+    border: 1px solid blue;
+}
+li a :hover{
+    background-color: blue ;
+    color: white;
+}

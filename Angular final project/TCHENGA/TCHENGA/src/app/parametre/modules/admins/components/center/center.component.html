@@ -1,56 +1,151 @@
-<h4 class="">Dashboard Center</h4>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card text-bg-light mb-3 mt-4 me-5" style="max-width: 25rem;">
-            <div class="card-header">Center</div>
-            <div class="card-body">
-                <h5 class="card-title">Name</h5>
-                <form action="" method="post">
-                    <div class="input-group flex-nowrap">
-                        <input type="hidden" name="">
-                        <span class="input-group-text"><i class="fa fa-edit"></i></span>
-                        <input type="text" class="form-control" placeholder="Name Center" aria-label="Username"
-                            aria-describedby="addon-wrapping">
+<div class="row col-md-12">
 
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-info mt-4 text-white " style="margin-left: 170px;"><i
-                                class="fa fa-check" style="margin-right: 2px;"></i>Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div *ngIf="messageSucces" class="alert alert-success mt-2" role="alert">
+        Add Successfull
     </div>
-    <div class="col-md-7">
-        <div class="mt-4">
-            <h5 class="text-center text-decoration-underline">Table Center</h5>
+    <div *ngIf="messageDelete" class="alert alert-danger mt-2" role="alert">
+        Delete Successfull
+    </div>
+
+</div>
+
+<div class="container mt-3 bg-light border-primary " style="border: solid 1px blue; border-radius: 10px;
+">
+    
+    <div class="col-md-12">
+
+        <form (ngSubmit)="addCenter()">
+            <h4 class="text-center text-primary" style="font-size:30px;border:solid 1px  blue; "> Center</h4>
+            <div class="row  mt-3">
+                <div class="col-md-4 ">
+                    <div>
+                        <div class="" style="font-size:18px;">Code Center </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                            <input type="text" class="form-control" placeholder="Code center" aria-label="Username"
+                                aria-describedby="basic-addon1" [(ngModel)]="center.codeCenter"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <div>Name Center </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-edit"></i></span>
+                            <input type="text" class="form-control" placeholder="Name Center" aria-label="Username"
+                                aria-describedby="basic-addon1" [(ngModel)]="center.nameCenter"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <div>Address Center </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-address-book"></i></span>
+                            <input type="text" class="form-control" placeholder="Address Center" aria-label="Username"
+                                aria-describedby="basic-addon1" [(ngModel)]="center.adresseCenter"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row ">
+                <div class="col-md-4">
+                    <div>
+                        <div>Phone Center </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
+                            <input type="text" class="form-control" placeholder="Phone Center" aria-label="Username"
+                                aria-describedby="basic-addon1" [(ngModel)]="center.phoneCenter"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <div>Municipalitie Center </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-bank"></i></span>
+                            <select class="form-select" [(ngModel)]="center.municipalities" #select="ngModel"
+                                [ngModelOptions]="{standalone: true}" (change)="selectedValue(select)">
+                                <option [value]="undefined" selected>Choose Your municipalities</option>
+                                <option *ngFor="let list_commune of list_commune" value="{{list_commune |json}}">
+                                    {{list_commune.municipalitieName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <div>Email Center </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                            <input type="text" class="form-control" placeholder="Email Center" aria-label="Username"
+                                aria-describedby="basic-addon1" [(ngModel)]="center.emailCenter"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row col-md-12 mb-3">
+                <button type="submit" class="btn btn-info mt-4 text-white " style="margin-left: 10px;"><i
+                        class="fa fa-check" style="margin-right:5px;"></i>Submit</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="mt-5">
+            <h5 class="text-center text-decoration-underline mb-3">Table Center</h5>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">N</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Municipalities</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Name </th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Municipalitie</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+
+                    <tr *ngFor="let tab_center of tab_center ;let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{tab_center.codeCenter}}</td>
+                        <td>{{tab_center.nameCenter}}</td>
+                        <td>{{tab_center.adresseCenter}}</td>
+                        <td>{{tab_center.phoneCenter}}</td>
+                        <td>{{tab_center.municipalities.municipalitieName}}</td>
+                        <td>{{tab_center.emailCenter}}</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary  text-white me-2 "><i class="fa fa-edit"
+                                    style="margin-right: 2px;"></i>
+                            </button>
+
+                            <button type="submit" (click)="deleteCenter(tab_center.idCenter)"
+                                class="btn btn-danger text-white "><i class="fas fa-trash-alt"
+                                    style="margin-right: 2px;"></i></button>
+
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>

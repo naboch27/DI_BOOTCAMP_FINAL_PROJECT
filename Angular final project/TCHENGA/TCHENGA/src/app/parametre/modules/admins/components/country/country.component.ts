@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { windowTime } from 'rxjs';
 import { CountryService } from 'src/app/api/country.service';
-import { Icountry } from 'src/app/models/Icountry';
+import { Country } from 'src/app/models/Country';
 
 @Component({
   selector: 'app-country',
@@ -9,32 +11,58 @@ import { Icountry } from 'src/app/models/Icountry';
 })
 export class CountryComponent {
 
-  icountry :Icountry;
-   
-  t_country :Icountry[] = [];
+  country: Country;
 
+  tab_country: Country[] = [];
 
-  constructor(private countryService : CountryService){
-    this.icountry = new Icountry();
+  messageSucces: boolean = false;
+
+  messageDelete: boolean = false;
+
+  constructor(private countryService: CountryService) {
+    this.country = new Country();
   }
 
-  addCountry(){
-    this.countryService.setCountry(this.icountry).subscribe({
-      next:data =>{
+  addCountry() {
+    this.countryService.setCountry(this.country).subscribe({
+      next: data => {
         console.log(data);
-        alert("country enregistré avec succes");
+        this.messageSucces = true;
+
+        setInterval((() => window.location.reload()), 1000);
+
       },
-      error:error=>{
+      error: error => {
         console.log(error);
       }
-      
+
     })
   }
-  ngOnInit():void{
-this.countryService.getCountry().subscribe((Response)=>{
-  this.t_country =Response as Icountry[];
-  console.log(this.t_country);
-})
+  ngOnInit(): void {
+    this.countryService.getCountry().subscribe((Response) => {
+      this.tab_country = Response as Country[];
+      console.log(this.tab_country);
+    })
+  }
+
+  deleteCountry(id: number) {
+    this.countryService.deleteCountry(id).subscribe({
+      next: data => {
+        console.log(data);
+        // alert("Delete successfull");
+
+        this.messageDelete = true;
+
+        setInterval((() => window.location.reload()), 1000);
+
+      },
+      error: error => {
+        console.log(error);
+      }
+
+    })
   }
 
 }
+
+

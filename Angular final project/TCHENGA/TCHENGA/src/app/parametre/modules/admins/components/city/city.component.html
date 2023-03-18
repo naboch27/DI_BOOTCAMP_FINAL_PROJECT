@@ -1,21 +1,37 @@
 <h4 class="">Dashboard city</h4>
-<div class="row">
+<div class="row col-md-12">
+    <div *ngIf="messageSucces"  class="alert alert-success mt-2"  role="alert">
+        Add Successfull
+      </div>
+      <div *ngIf="messageDelete"  class="alert alert-danger mt-2"  role="alert">
+        Delete Successfull
+      </div>
     <div class="col-md-4">
         <div class="card text-bg-light mb-3 mt-4 me-5" style="max-width: 25rem;">
             <div class="card-header">City</div>
             <div class="card-body">
                 <h5 class="card-title">Name</h5>
-                <form action="" method="post">
+                <form (ngSubmit)="addCity()">
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        <select class="form-select" [(ngModel)]="city.country" #select="ngModel"
+                            [ngModelOptions]="{standalone: true}" (change)="selectedValue(select)">
+                            <option [value]="undefined" selected>Choose Your Country</option>
+                            <option *ngFor="let country of countries" value="{{country |json}}">{{country.countryName}}
+                            </option>
+                        </select>
+                    </div>
                     <div class="input-group flex-nowrap">
                         <input type="hidden" name="">
                         <span class="input-group-text"><i class="fa fa-edit"></i></span>
-                        <input type="text" class="form-control" placeholder="Name city" aria-label="Username"
+                        <input type="text" class="form-control" [(ngModel)]="city.cityName"
+                            [ngModelOptions]="{standalone: true}" placeholder="Name city" aria-label="Username"
                             aria-describedby="addon-wrapping">
 
                     </div>
                     <div>
-                        <button type="button" class="btn btn-info mt-4 text-white " style="margin-left: 170px;"><i
-                                class="fa fa-check" style="margin-right: 2px;"></i>Submit</button>
+                        <button type="submit" class="btn btn-info mt-4 text-white " style="margin-left: 170px;"><i
+                                class="fa fa-check" style="margin-right:5 px;"></i>Submit</button>
                     </div>
                 </form>
             </div>
@@ -28,29 +44,30 @@
                 <thead>
                     <tr>
                         <th scope="col">N</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Country</th>
+                        <th scope="col" style="display: none;">id</th>
+                        <th scope="col">Name Country</th>
+                        <th scope="col">Name City</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                    
+                    <tr *ngFor="let city of tab_city ;let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{city.country.countryName}}</td>
+                        <td>{{city.cityName}}</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary  text-white me-2 " ><i
+                                class="fa fa-edit" style="margin-right: 2px;"></i>
+                            </button>
+
+                            <button type="submit" (click)="deleteCity(city.cityId)"
+                            class="btn btn-danger text-white "><i
+                                class="fas fa-trash-alt" style="margin-right: 2px;"></i></button>
+                                
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                   
                 </tbody>
             </table>
         </div>

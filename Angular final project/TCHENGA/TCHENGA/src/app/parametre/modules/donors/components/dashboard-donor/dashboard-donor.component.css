@@ -1,0 +1,11 @@
+
+.li-color-item{
+    border: 1px solid blue;
+}
+.li-hover-item:hover{
+    color: white;
+    cursor:pointer;
+   transform:scale(1.08);
+   font-size: 18px; 
+
+}

@@ -12,7 +12,8 @@ import { DocumentComponent } from './components/document/document.component';
 import { CenterComponent } from './components/center/center.component';
 import { PersonnelsComponent } from './components/personnels/personnels.component';
 import { CompteDonorComponent } from './components/compte-donor/compte-donor.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AdminsRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminsModule { }
