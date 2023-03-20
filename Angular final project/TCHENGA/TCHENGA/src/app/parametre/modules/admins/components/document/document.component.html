@@ -13,7 +13,7 @@
                 <h5 class="card-title">Name</h5>
                 <form (ngSubmit)="addDocument()" >
                     <div class="input-group flex-nowrap">
-                        <input type="hidden" >
+                        <input type="hidden" [(ngModel)]="document.identityDocumentId"  [ngModelOptions]="{standalone: true}">
                         <span class="input-group-text"><i class="fa fa-edit"></i></span>
                         <input type="text" class="form-control" placeholder="Name Document" aria-label="Username"
                             aria-describedby="addon-wrapping" [(ngModel)]="document.identityDocumentName" [ngModelOptions]="{standalone: true}">
@@ -44,11 +44,13 @@
                         <th scope="row">{{i+1}}</th>
                         <td>{{document.identityDocumentName}}</td>
                         <td>
-                            <button type="submit" class="btn btn-primary  text-white me-2 " ><i
+                            <button type="submit" (click)="loadIdentityDocument(document)"
+                            class="btn btn-primary  text-white me-2 " ><i
                                 class="fa fa-edit" style="margin-right: 2px;"></i>
                             </button>
 
-                            <button type="submit" (click)="deleteDocument(document.identityDocumentId)"
+                            <button type="submit"  
+                            (click)="deleteDocument(document.identityDocumentId)"
                               class="btn btn-danger text-white "><i
                                 class="fas fa-trash-alt" style="margin-right: 2px;"></i></button>
                                 

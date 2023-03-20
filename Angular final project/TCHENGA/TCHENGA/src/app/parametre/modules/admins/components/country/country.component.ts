@@ -15,6 +15,8 @@ export class CountryComponent {
 
   tab_country: Country[] = [];
 
+  reload:any;
+
   messageSucces: boolean = false;
 
   messageDelete: boolean = false;
@@ -61,6 +63,12 @@ export class CountryComponent {
       }
 
     })
+  }
+
+  
+  loadCountry(country: Country){
+   this.country=country;
+   console.log(this.country)
   }
 
 }

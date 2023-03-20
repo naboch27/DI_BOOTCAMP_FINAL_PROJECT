@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CompteService } from 'src/app/api/compte.service';
@@ -10,19 +10,20 @@ import { IdentityDocument } from 'src/app/models/IdentityDocument';
 import { Jobs } from 'src/app/models/Jobs';
 import { Municipalities } from 'src/app/models/Municipalities';
 
+
 @Component({
-  selector: 'app-compte',
-  templateUrl: './compte.component.html',
-  styleUrls: ['./compte.component.css']
+  selector: 'app-donor-update',
+  templateUrl: './donor-update.component.html',
+  styleUrls: ['./donor-update.component.css']
 })
-export class CompteComponent implements OnInit {
+export class DonorUpdateComponent {
 
-
+  
   list_municipalitie: any = [];
   list_jobs: any = [];
   list_document: any = [];
 
-  formsText: FormGroup;
+  forms: FormGroup;
 
   compte!: Compte;
 
@@ -42,7 +43,7 @@ export class CompteComponent implements OnInit {
     private compteService: CompteService,
     private formBuilder: FormBuilder,
     config: NgbModalConfig, private modalService: NgbModal) {
-    this.formsText = this.formBuilder.group({
+    this.forms = this.formBuilder.group({
 
       firstNamePerson: ['', Validators.required],
       lastNamePersonne: ['', Validators.required],
@@ -66,8 +67,8 @@ export class CompteComponent implements OnInit {
     console.log(this.municipalitie);
 
     console.log(this.compte);
-    if (this.formsText.valid) {
-      this.compte = this.formsText.value
+    if (this.forms.valid) {
+      this.compte = this.forms.value
       this.compte.documentEntity = JSON.parse(this.compte.documentEntity as unknown as string) as IdentityDocument
       this.compte.jobsEntity = JSON.parse(this.compte.jobsEntity as unknown as string) as Jobs
       this.compte.municipalitiesEntity = JSON.parse(this.compte.municipalitiesEntity as unknown as string) as Municipalities
@@ -130,9 +131,5 @@ export class CompteComponent implements OnInit {
 
 
   }
-
-
-
-
 
 }

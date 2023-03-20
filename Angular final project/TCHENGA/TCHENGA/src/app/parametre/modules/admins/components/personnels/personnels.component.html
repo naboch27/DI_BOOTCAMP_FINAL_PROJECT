@@ -9,7 +9,8 @@
                 <p class="text-center" style="font-size: 22px;text-decoration: underline;
             ">STAFF REGISTRATION</p>
             </div>
-    
+            <input type="hidden" formControlName="idPerson" >
+                       
             <div class="row col-md-12">
                 <div class="col-md-6 ">
                     <div class="form-group">
@@ -82,7 +83,6 @@
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text"><i class="fa fa-edit"></i></span>
                             <select class="form-select" formControlName="municipalitiesEntity" 
-                             placeholder="hhbhb"
                              ngModel
                               >    
                                  <option  value="">Choose Your Municipalitie</option>
@@ -192,7 +192,8 @@
                 <td>{{tab_staff.jobsEntity.jobsName}}</td>
                 <td>{{tab_staff.documentEntity.identityDocumentName}}</td>
                 <td>
-                    <button type="submit" class="btn btn-primary  text-white me-2 " ><i
+                    <button type="submit" (click)="loardStaff(tab_staff)"
+                     class="btn btn-primary  text-white me-2 " ><i
                         class="fa fa-edit" style="margin-right: 2px;"></i>
                     </button>
 

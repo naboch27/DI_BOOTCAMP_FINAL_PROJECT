@@ -75,7 +75,6 @@ export class PersonnelsComponent implements OnInit {
 			this.staff.jobsEntity = JSON.parse(this.staff.jobsEntity as unknown as string) as Jobs
 			this.staff.municipalitiesEntity = JSON.parse(this.staff.municipalitiesEntity as unknown as string) as Municipalities
 			let data = JSON.stringify({
-
 				"firstNamePerson": this.staff.firstNamePerson,
 				"lastNamePersonne": this.staff.lastNamePersonne,
 				"phonePerson": this.staff.phonePerson,
@@ -136,7 +135,7 @@ export class PersonnelsComponent implements OnInit {
 
 		this.staffService.getStaff().subscribe((Response) => {
 			this.tab_staff = Response as Staff[];
-			console.log(this.tab_staff);
+			console.log(this.tab_staff)
 		})
 
 
@@ -148,7 +147,9 @@ export class PersonnelsComponent implements OnInit {
 
 	
 	deleteStaff(id: number) {
-		
+		console.log("data1="+this.tab_staff.forEach(function(couleur) {
+			console.log(couleur.adressePerson);
+		}))
 		this.staffService.deleteStaff(id).subscribe({
 		  next: data => {
 			console.log(data);
@@ -164,5 +165,10 @@ export class PersonnelsComponent implements OnInit {
 		  }
 	
 		})
+	  }
+
+	  loardStaff(staff :Staff){
+		this.staff=staff;
+		console.log(this.staff)
 	  }
 }

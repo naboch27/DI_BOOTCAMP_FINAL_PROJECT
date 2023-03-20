@@ -61,6 +61,9 @@ export class DocumentComponent {
     })
   }
 
-
+  loadIdentityDocument(document: IdentityDocument){
+    this.document=document;
+    console.log(this.document)
+  }
 
 }

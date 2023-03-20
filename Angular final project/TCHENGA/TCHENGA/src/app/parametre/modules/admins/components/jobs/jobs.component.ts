@@ -62,6 +62,9 @@ this.jobService.getJobs().subscribe((Response)=>{
     })
   }
 
-
+  loadJobs(jobs : Jobs){
+    this.jobs=jobs;
+    console.log(this.jobs)
+   }
 
 }

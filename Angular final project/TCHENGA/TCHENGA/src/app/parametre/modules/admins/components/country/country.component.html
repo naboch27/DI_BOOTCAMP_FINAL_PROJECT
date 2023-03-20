@@ -15,11 +15,11 @@
             <div class="card-body">
                 <h5 class="card-title">Name</h5>
                 <form (ngSubmit)="addCountry()" >
-                    <div class="input-group flex-nowrap">
-                        <input type="hidden" >
+                    <div class="input-group flex-nowrap" >
+                        <input type="hidden" [(ngModel)]="country.countryId"  [ngModelOptions]="{standalone: true}">
                         <span class="input-group-text"><i class="fa fa-edit"></i></span>
                         <input type="text" class="form-control" placeholder="Name Country" aria-label="Username"
-                            aria-describedby="addon-wrapping" [(ngModel)]="country.countryName" [ngModelOptions]="{standalone: true}">
+                            aria-describedby="addon-wrapping" [(ngModel)]="country.countryName" name="countryName" [ngModelOptions]="{standalone: true}">
 
                     </div>
                     <div>
@@ -47,7 +47,8 @@
                         <th scope="row">{{i+1}}</th>
                         <td>{{country.countryName}}</td>
                         <td>
-                            <button type="submit"  class="btn btn-primary  text-white me-2 " ><i
+                            <button type="submit" (click)="loadCountry(country)" 
+                              class="btn btn-primary  text-white me-2 " ><i
                                 class="fa fa-edit" style="margin-right: 2px;"></i>
                             </button>
 

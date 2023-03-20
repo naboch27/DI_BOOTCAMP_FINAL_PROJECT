@@ -81,4 +81,8 @@ deleteCity(id: number) {
 
   })
 }
+loadCity(city: City){
+  this.city=city;
+  console.log(this.city)
+ }
 }

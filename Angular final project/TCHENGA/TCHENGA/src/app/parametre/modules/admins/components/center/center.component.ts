@@ -81,5 +81,9 @@ export class CenterComponent {
     })
   }
 
+  loardCenter(center: Center){
+    this.center=center;
+    console.log(this.center)
+  }
 
 }

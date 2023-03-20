@@ -12,6 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">Name</h5>
                 <form (ngSubmit)="addCity()">
+                    <input type="hidden" [(ngModel)]="city.cityId"  [ngModelOptions]="{standalone: true}">
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
                         <select class="form-select" [(ngModel)]="city.country" #select="ngModel"
@@ -57,7 +58,8 @@
                         <td>{{city.country.countryName}}</td>
                         <td>{{city.cityName}}</td>
                         <td>
-                            <button type="submit" class="btn btn-primary  text-white me-2 " ><i
+                            <button type="submit" (click)="loadCity(city)" 
+                            class="btn btn-primary  text-white me-2 " ><i
                                 class="fa fa-edit" style="margin-right: 2px;"></i>
                             </button>
 

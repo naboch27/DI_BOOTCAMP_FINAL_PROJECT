@@ -1,7 +1,7 @@
 
-<app-header></app-header>
 
-<section class="intro " style="margin-bottom: 100px;margin-top: 100px;">
+
+<section class="intro " >
 <div class="row">
     <div class=" col-md-2"></div>
     <div class=" col-md-8">
@@ -21,8 +21,8 @@
       
       <div class="col-md-12">
   
-          <form [formGroup]="formsText"  (ngSubmit)="addCompte()">
-              <h4 class="text-center text-primary" style="font-size:30px;border:solid 1px  blue; "> Inscription des Donneurs</h4>
+          <form [formGroup]="forms"  (ngSubmit)="addCompte()">
+              <h4 class="text-center text-primary" style="font-size:30px;border:solid 1px  blue; "> Modifier Mes Information</h4>
               <div class="row  mt-3">
                   <div class="col-md-4 ">
                       <div>
@@ -161,4 +161,4 @@
   </div>
   </section>
 
-  <app-footer></app-footer>
+  

@@ -16,7 +16,9 @@
 
         <form (ngSubmit)="addCenter()">
             <h4 class="text-center text-primary" style="font-size:30px;border:solid 1px  blue; "> Center</h4>
+            <input type="hidden" [(ngModel)]="center.idCenter"  [ngModelOptions]="{standalone: true}">
             <div class="row  mt-3">
+
                 <div class="col-md-4 ">
                     <div>
                         <div class="" style="font-size:18px;">Code Center </div>
@@ -135,7 +137,8 @@
                         <td>{{tab_center.municipalities.municipalitieName}}</td>
                         <td>{{tab_center.emailCenter}}</td>
                         <td>
-                            <button type="submit" class="btn btn-primary  text-white me-2 "><i class="fa fa-edit"
+                            <button type="submit"  (click)="loardCenter(tab_center)"
+                             class="btn btn-primary  text-white me-2 "><i class="fa fa-edit"
                                     style="margin-right: 2px;"></i>
                             </button>
 

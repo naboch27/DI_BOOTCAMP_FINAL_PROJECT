@@ -15,6 +15,7 @@
                 <form (ngSubmit)="addMunicipalities()">
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        <input type="hidden" [(ngModel)]="municipalities.municipalitieId"  [ngModelOptions]="{standalone: true}">
                         <select class="form-select" [(ngModel)]="municipalities.city" #select="ngModel"
                             [ngModelOptions]="{standalone: true}" (change)="selectedValue(select)">
                             <option [value]="undefined" selected>Choose Your City</option>
@@ -57,7 +58,8 @@
                         <td>{{municipalities.city.cityName}}</td>
                         <td>{{municipalities.municipalitieName}}</td>
                         <td>
-                            <button type="submit" class="btn btn-primary  text-white me-2 " ><i
+                            <button type="submit" (click)="loadMunicipalitie(municipalities)" 
+                            class="btn btn-primary  text-white me-2 " ><i
                                 class="fa fa-edit" style="margin-right: 2px;"></i>
                             </button>
 

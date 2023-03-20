@@ -1,10 +1,10 @@
-import { Connection } from "./Connection";
 import { IdentityDocument } from "./IdentityDocument";
 import { Jobs } from "./Jobs";
 import { Municipalities } from "./Municipalities";
 
-export class Staff {
-    "idPerson"!:number;
+
+export class Compte {
+    "idPerson":number;
     "firstNamePerson":string;
     "lastNamePersonne":string;
     "phonePerson":string;

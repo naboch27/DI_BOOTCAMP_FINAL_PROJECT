@@ -82,4 +82,9 @@ deleteMunicipalities(id: number) {
 
   })
 }
+
+loadMunicipalitie(municipalities: Municipalities){
+  this.municipalities=municipalities;
+  console.log(this.municipalities)
+}
 }

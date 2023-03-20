@@ -33,7 +33,7 @@ const routes: Routes = [
 
  //route Child donors
  {
-  path: 'donor', loadChildren: () =>
+  path: 'benefactor', loadChildren: () =>
     import('./parametre/modules/donors/donors.module').then((m) => m.DonorsModule),
 },
 

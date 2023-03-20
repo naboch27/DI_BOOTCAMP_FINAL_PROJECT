@@ -25,6 +25,10 @@ export class CountryService {
    return this.httpService.get("/public/api/v1/country");
   }
 
+  getCountryId(country :Country) {
+    return this.httpService.delete(`/public/api/v1/country/${country}`);
+   }
+
   deleteCountry(id : number) {
     return this.httpService.delete(`/public/api/v1/country/${id}`);
   }
