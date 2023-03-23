@@ -1,4 +1,7 @@
 <div class="row mt-5">
+  <div *ngIf="message" class="alert alert-danger mt-2 text-center" role="alert">
+    Error Login and password
+</div>
   <div class="col-md-4"></div>
   <div class="col-md-4">
 
@@ -16,7 +19,8 @@
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="fa fa-edit"></i></span>
               <input type="text" class="form-control" placeholder="Login" aria-label="Username"
-                  aria-describedby="basic-addon1" >
+                  aria-describedby="basic-addon1" 
+                  [(ngModel)]="login" name="login" [ngModelOptions]="{standalone: true}" >
           </div>
       </div>
       <div>
@@ -24,7 +28,8 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
             <input type="text" class="form-control" placeholder="Password" aria-label="Username"
-                aria-describedby="basic-addon1" >
+                aria-describedby="basic-addon1" name="Password" 
+                [(ngModel)]="password" name="password" [ngModelOptions]="{standalone: true}" >
         </div>
     </div>
     
@@ -33,7 +38,8 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button (click)="envoyer()"
+         class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; adaci 2022</p>
       </form>
     </main>

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SensitizationComponent {
 
+  
+  images = ['../../assets/img/carousel/don1.jpg',
+  '../../assets/img/carousel/don2.jpg',
+  '../../assets/img/carousel/don3.jpg'
+];
 }

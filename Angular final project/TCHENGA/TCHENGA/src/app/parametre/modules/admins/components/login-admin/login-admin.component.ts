@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class LoginAdminComponent {
 
+  login: any;
+  password:any;
+  
+
+  envoyer(){
+    alert("ok");
+  }
+  //this.router.navigate(['/error']);
+
 }

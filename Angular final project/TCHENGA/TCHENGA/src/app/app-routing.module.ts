@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'datable', component:DatableComponent },
+  
   //route Child admins
   {
     path: 'admin', loadChildren: () =>

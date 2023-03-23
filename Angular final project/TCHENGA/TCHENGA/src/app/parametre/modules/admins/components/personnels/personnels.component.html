@@ -182,7 +182,7 @@
        
             <tr *ngFor="let tab_staff of tab_staff ;let i = index">
                 <th scope="row">{{i+1}}</th>
-                <td>{{tab_staff.idPerson}}</td>
+                <td>{{tab_staff.idPeson}}</td>
                 <td>{{tab_staff.firstNamePerson}}</td>
                 <td>{{tab_staff.lastNamePersonne}}</td>
                 <td>{{tab_staff.phonePerson}}</td>
@@ -197,7 +197,7 @@
                         class="fa fa-edit" style="margin-right: 2px;"></i>
                     </button>
 
-                    <button type="submit"  (click)="deleteStaff(tab_staff.idPerson)"
+                    <button type="submit"  (click)="deleteStaff(tab_staff.idPeson)"
                     class="btn btn-danger text-white "><i
                         class="fas fa-trash-alt" style="margin-right: 2px;"></i></button>
                         

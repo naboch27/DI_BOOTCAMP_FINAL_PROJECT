@@ -4,7 +4,7 @@ import { Jobs } from "./Jobs";
 import { Municipalities } from "./Municipalities";
 
 export class Staff {
-    "idPerson"!:number;
+    "idPeson"!:number;
     "firstNamePerson":string;
     "lastNamePersonne":string;
     "phonePerson":string;
